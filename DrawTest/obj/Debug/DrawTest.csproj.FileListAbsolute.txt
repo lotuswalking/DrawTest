@@ -1,0 +1,18 @@
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\bin\Debug\DrawTest.exe.config
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\bin\Debug\DrawTest.exe
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\bin\Debug\DrawTest.pdb
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\obj\Debug\DrawTest.csprojResolveAssemblyReference.cache
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\obj\Debug\DrawTest.Forms.Form1.resources
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\obj\Debug\DrawTest.Properties.Resources.resources
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\obj\Debug\DrawTest.csproj.GenerateResource.Cache
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\obj\Debug\DrawTest.exe
+c:\users\deadline\documents\visual studio 2013\Projects\DrawTest\DrawTest\obj\Debug\DrawTest.pdb
+D:\vs2012\DrawTest\DrawTest\bin\Debug\DrawTest.exe.config
+D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.exe
+D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.pdb
+D:\vs2012\DrawTest\DrawTest\bin\Debug\DrawTest.exe
+D:\vs2012\DrawTest\DrawTest\bin\Debug\DrawTest.pdb
+D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.csprojResolveAssemblyReference.cache
+D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.Forms.Form1.resources
+D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.Properties.Resources.resources
+D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.csproj.GenerateResource.Cache
