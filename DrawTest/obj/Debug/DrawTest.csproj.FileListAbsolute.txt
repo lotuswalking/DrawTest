@@ -16,3 +16,13 @@ D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.csprojResolveAssemblyReference.ca
 D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.Forms.Form1.resources
 D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.Properties.Resources.resources
 D:\vs2012\DrawTest\DrawTest\obj\Debug\DrawTest.csproj.GenerateResource.Cache
+D:\vs2017\DrawTest\DrawTest\bin\Debug\DrawTest.exe.config
+D:\vs2017\DrawTest\DrawTest\bin\Debug\DrawTest.exe
+D:\vs2017\DrawTest\DrawTest\bin\Debug\DrawTest.pdb
+D:\vs2017\DrawTest\DrawTest\obj\Debug\DrawTest.csprojResolveAssemblyReference.cache
+D:\vs2017\DrawTest\DrawTest\obj\Debug\DrawTest.Forms.Form1.resources
+D:\vs2017\DrawTest\DrawTest\obj\Debug\DrawTest.Properties.Resources.resources
+D:\vs2017\DrawTest\DrawTest\obj\Debug\DrawTest.csproj.GenerateResource.Cache
+D:\vs2017\DrawTest\DrawTest\obj\Debug\DrawTest.csproj.CoreCompileInputs.cache
+D:\vs2017\DrawTest\DrawTest\obj\Debug\DrawTest.exe
+D:\vs2017\DrawTest\DrawTest\obj\Debug\DrawTest.pdb

@@ -8,6 +8,7 @@ namespace DrawTest.Forms
     public partial class Form1 : Form
     {
         ArrayList al = new ArrayList();
+        ArrayList sharpes = new ArrayList();
         public Form1()
         {
             InitializeComponent();
@@ -16,6 +17,7 @@ namespace DrawTest.Forms
         private bool _canDraw;
         private int _startX, _startY;
         private Rectangle _rect;
+        private string _drawType="Rectangle";
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             //The system is now allowed to draw rectangles
@@ -30,18 +32,40 @@ namespace DrawTest.Forms
             //The system is no longer allowed to draw rectangles
             if (!_canDraw) return;
 
-            //The x-value of our rectangle should be the minimum between the start x-value and the current x-position
-            int x = Math.Min(_startX, e.X);
-            //The y-value of our rectangle should also be the minimum between the start y-value and current y-value
-            int y = Math.Min(_startY, e.Y);
+            int x, y, width, height;
+            switch (_drawType)
+            {
+                case "Oval":
+                    //The x-value of our rectangle should be the minimum between the start x-value and the current x-position
+                    x = Math.Min(_startX, e.X);
+                    //The y-value of our rectangle should also be the minimum between the start y-value and current y-value
+                    y = Math.Min(_startY, e.Y);
 
-            //The width of our rectangle should be the maximum between the start x-position and current x-position minus
-            //the minimum of start x-position and current x-position
-            int width = Math.Max(_startX, e.X) - Math.Min(_startX, e.X);
+                    //The width of our rectangle should be the maximum between the start x-position and current x-position minus
+                    //the minimum of start x-position and current x-position
+                    width = Math.Max(_startX, e.X) - Math.Min(_startX, e.X);
 
-            //For the hight value, it's basically the same thing as above, but now with the y-values:
-            int height = Math.Max(_startY, e.Y) - Math.Min(_startY, e.Y);
-            _rect = new Rectangle(x, y, width, height);
+                    //For the hight value, it's basically the same thing as above, but now with the y-values:
+                    height = Math.Max(_startY, e.Y) - Math.Min(_startY, e.Y);
+                    _rect = new Rectangle(x, y, width, height);
+                    break;
+                default:
+                    //The x-value of our rectangle should be the minimum between the start x-value and the current x-position
+                    x = Math.Min(_startX, e.X);
+                    //The y-value of our rectangle should also be the minimum between the start y-value and current y-value
+                    y = Math.Min(_startY, e.Y);
+
+                    //The width of our rectangle should be the maximum between the start x-position and current x-position minus
+                    //the minimum of start x-position and current x-position
+                    width = Math.Max(_startX, e.X) - Math.Min(_startX, e.X);
+
+                    //For the hight value, it's basically the same thing as above, but now with the y-values:
+                    height = Math.Max(_startY, e.Y) - Math.Min(_startY, e.Y);
+                    _rect = new Rectangle(x, y, width, height);
+                    break;
+
+            }
+            sharpes.Add(_drawType);
             al.Add(_rect);
             
             _canDraw = false;
@@ -51,20 +75,40 @@ namespace DrawTest.Forms
         {
             //If we are not allowed to draw, simply return and disregard the rest of the code
             if (!_canDraw) return;
+            int x, y, width, height;
+            switch (_drawType)
+            {
+                case "Oval":
+                    //The x-value of our rectangle should be the minimum between the start x-value and the current x-position
+                     x = Math.Min(_startX, e.X);
+                    //The y-value of our rectangle should also be the minimum between the start y-value and current y-value
+                     y = Math.Min(_startY, e.Y);
 
-            //The x-value of our rectangle should be the minimum between the start x-value and the current x-position
-            int x = Math.Min(_startX, e.X);
-            //The y-value of our rectangle should also be the minimum between the start y-value and current y-value
-            int y = Math.Min(_startY, e.Y);
+                    //The width of our rectangle should be the maximum between the start x-position and current x-position minus
+                    //the minimum of start x-position and current x-position
+                     width = Math.Max(_startX, e.X) - Math.Min(_startX, e.X);
 
-            //The width of our rectangle should be the maximum between the start x-position and current x-position minus
-            //the minimum of start x-position and current x-position
-            int width = Math.Max(_startX, e.X) - Math.Min(_startX, e.X);
+                    //For the hight value, it's basically the same thing as above, but now with the y-values:
+                     height = Math.Max(_startY, e.Y) - Math.Min(_startY, e.Y);
+                    _rect = new Rectangle(x, y, width, height);
+                    break;
+                default:
+                    //The x-value of our rectangle should be the minimum between the start x-value and the current x-position
+                     x = Math.Min(_startX, e.X);
+                    //The y-value of our rectangle should also be the minimum between the start y-value and current y-value
+                     y = Math.Min(_startY, e.Y);
 
-            //For the hight value, it's basically the same thing as above, but now with the y-values:
-            int height = Math.Max(_startY, e.Y) - Math.Min(_startY, e.Y);
-            _rect = new Rectangle(x, y, width, height);
-            //Refresh the form and draw the rectangle
+                    //The width of our rectangle should be the maximum between the start x-position and current x-position minus
+                    //the minimum of start x-position and current x-position
+                     width = Math.Max(_startX, e.X) - Math.Min(_startX, e.X);
+
+                    //For the hight value, it's basically the same thing as above, but now with the y-values:
+                     height = Math.Max(_startY, e.Y) - Math.Min(_startY, e.Y);
+                    _rect = new Rectangle(x, y, width, height);
+                    break;
+
+            }
+       
             Refresh();
         }
 
@@ -76,16 +120,60 @@ namespace DrawTest.Forms
                 //Draw the rectangle on our form with the pen
                 if (_canDraw)
                 {
-                    e.Graphics.DrawRectangle(pen, _rect);
+                    switch (_drawType)
+                    {
+                        case "Oval":
+                            e.Graphics.DrawEllipse(pen, _rect);
+                            break;
+                        default:
+                            e.Graphics.DrawRectangle(pen, _rect);
+                            break;
+                    }
+                }
+                if (al.Count == 0 | sharpes.Count == 0)
+                    return;
+                for(int i=0;i<al.Count;i++)
+                {
+                    string drawType =Convert.ToString(sharpes[i]);
+                    Rectangle rect = (Rectangle)al[i];
+                    switch (drawType)
+                    {
+                        case "Oval":
+                            e.Graphics.DrawEllipse(pen, rect);
+                            break;
+                        default:
+                            e.Graphics.DrawRectangle(pen, rect);
+                            break;
+                    }
                 }
          
-                    foreach (Rectangle rect in al)
-                    {
-                        e.Graphics.DrawRectangle(pen, rect);
-                    }
+                    //foreach (Rectangle rect in al)
+                    //{
+                    //    e.Graphics.DrawRectangle(pen, rect);
+                    //}
          
                 
                 //e.Graphics.DrawRectangle(pen, _rect);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _drawType = "Recttangle";
+                }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _drawType = "Oval";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (al.Count > 0)
+            {
+                al.RemoveAt(al.Count - 1);
+                sharpes.RemoveAt(sharpes.Count - 1);
+                Refresh();
             }
         }
 
@@ -97,6 +185,7 @@ namespace DrawTest.Forms
                 if (al.Count > 0)
                 {
                     al.RemoveAt(al.Count - 1);
+                    sharpes.RemoveAt(sharpes.Count - 1);
                     Refresh();
                 }
                 
