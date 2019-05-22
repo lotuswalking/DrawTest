@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 
 namespace DrawTest.Forms
 {
@@ -175,6 +176,19 @@ namespace DrawTest.Forms
                 sharpes.RemoveAt(sharpes.Count - 1);
                 Refresh();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Rectangle tScreenRect = new Rectangle(0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            Bitmap tSrcBmp = new Bitmap(tScreenRect.Width, tScreenRect.Height); // 用于屏幕原始图片保存
+            
+            Graphics gp = Graphics.FromImage(tSrcBmp);
+            gp.CopyFromScreen(0, 0, 0, 0, tScreenRect.Size);
+            gp.DrawImage(tSrcBmp, 0, 0, tScreenRect, GraphicsUnit.Pixel);
+            tSrcBmp.Save(@"d:\backgrand.bmp");
+            gp.Dispose();
+            this.BackgroundImage = tSrcBmp;
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
